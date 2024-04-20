@@ -1,47 +1,14 @@
 import { useState } from "react";
-import { styled } from "styled-components";
+// import { styled } from "styled-components";
 import Input from "./Input.jsx";
+import Button from "./Button.jsx";
 
-const ControlComponent = styled.div`
+/*const ControlComponent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
-`;
-
-const Button = styled.button`
-  padding: 1rem 2rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  border-radius: 0.25rem;
-  color: #1f2937;
-  background-color: #f0b322;
-  border-radius: 6px;
-  border: none;
-  @media (max-width: 375px) {
-    font-size: 11px;
-    padding: 1px 1px;
-  }
-  &:hover {
-    background-color: #f0920e;
-    cursor: pointer;
-  }
-`;
-const NewAccBtn = styled(Button)`
-  cursor: pointer;
-  background: none;
-  line-height: inherit;
-  color: #f0b322;
-  border: none;
-  &:hover {
-    // background-color: none;
-    background: none;
-    color: #ffd152;
-  }
-  &:focus {
-    outline: none;
-  }
-`;
+`;*/
 
 export default function AuthInputs() {
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -60,12 +27,15 @@ export default function AuthInputs() {
     setSubmitted(true);
   }
 
+  let maindiv =
+    "w-full max-w-sm p-8 mx-auto rounded shadow-md bg-gradient-to-b from-amber-600 to-amber-800";
+
   const emailNotValid = submitted && !enteredEmail.includes("@");
   const passwordNotValid = submitted && enteredPassword.trim().length < 4;
 
   return (
-    <div id="auth-inputs">
-      <ControlComponent>
+    <div id="auth-inputs" className={maindiv}>
+      <div className="flex flex-col gap-2 mb-6">
         <Input
           label="email"
           type="email"
@@ -74,8 +44,8 @@ export default function AuthInputs() {
           onChange={(event) => handleInputChange("email", event.target.value)}
         />
         <Input
-          type="password"
           label="password"
+          type="password"
           // style={{ backgroundColor: emailNotValid ? "#fed2d2" : "#d1d5db" }}
           // className={passwordNotValid ? "$invalid" : undefined}
           invalid={passwordNotValid}
@@ -83,9 +53,15 @@ export default function AuthInputs() {
             handleInputChange("password", event.target.value)
           }
         />
-      </ControlComponent>
-      <div className="actions">
-        <NewAccBtn type="button">Create a new account</NewAccBtn>
+      </div>
+      <div className="flex justify-end gap-4">
+        {/* <NewAccBtn type="button">Create a new account</NewAccBtn> */}
+        <button
+          className="text-amber-400 hover:text-amber-500"
+          onClick={handleLogin}
+        >
+          Create an Account
+        </button>
         <Button onClick={handleLogin}>Sign In</Button>
       </div>
     </div>

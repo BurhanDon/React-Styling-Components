@@ -10,3 +10,15 @@ body {
   background-size: cover;
   /* height: 100vh; */
 }
+
+#app-p,
+a {
+  text-align: center;
+  text-decoration: none;
+  color: rgba(216, 118, 7, 0.5);
+  margin-top: 21px;
+}
+
+#app-p a:hover {
+  color: rgba(216, 118, 7, 1);
+}

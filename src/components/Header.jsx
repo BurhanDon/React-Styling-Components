@@ -11,7 +11,7 @@ export default function Header() {
       <h1 className="md:text-xl text-4xl font-semibold tracking-widset text-center uppercase text-amber-800 font-title">
         ReactArt
       </h1>
-      <p className="text-stone-500">Created using styled components & Tailwind by Burhan Uddin.</p>
+      <p className="text-stone-500">Created using styled components & Tailwind.</p>
       {/* <Button>Normal Button</Button>
       <TomatoButton>Tomato Button</TomatoButton> */}
     </header>
